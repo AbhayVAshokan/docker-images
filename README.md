@@ -5,8 +5,6 @@
 docker build -t aws-ebcli aws-ebcli --no-cache
 ```
 
-<br>
-
 ### **Apache server with php and mysql** <br>
 ```bash
 cd apache_mysql
