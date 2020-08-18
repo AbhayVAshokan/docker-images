@@ -1,11 +1,11 @@
 # Commands to run Dockerfiles
 
-### **AWS Elastic Beanstalk Command Line Interface** <br>
+### **AWS Elastic Beanstalk Command Line Interface**
 ```bash
 docker build -t aws-ebcli aws-ebcli --no-cache
 ```
 
-### **Apache server with php and mysql** <br>
+### **Apache server with php and mysql**
 ```bash
 cd apache_mysql
 docker-compose up --build
