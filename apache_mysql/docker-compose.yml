@@ -1,6 +1,6 @@
-version: "3.8"
+version: "3.1"
 services:
-    server:
+    www:
         build: .
         ports: 
             - "8001:80"
@@ -11,16 +11,18 @@ services:
         networks:
             - default
     db:
-        image: mysql
+        image: mysql:8.0
         ports: 
             - "3306:3306"
+        command: --default-authentication-plugin=mysql_native_password
         environment:
-            MYSQL_DATABASE: apacheDatabase
-            MYSQL_USER: abhayvashokan
-            MYSQL_PASSWORD: password
-            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: myDb
+            MYSQL_USER: user
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test 
         volumes:
             - ./dump:/docker-entrypoint-initdb.d
+            - ./conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
         networks:
             - default
@@ -33,6 +35,6 @@ services:
         environment:
             MYSQL_USER: user
             MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test 
 volumes:
     persistent:
